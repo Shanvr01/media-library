@@ -1,10 +1,4 @@
 <?php
-	$catalog = array(
-		'Beethoven',
-		'Spud',
-		'Something'
-		);
-
 	$pageTitle = 'Catalog';
 	if (isset($_GET['cat'])) {
 		if ($_GET['cat'] == 'books') {

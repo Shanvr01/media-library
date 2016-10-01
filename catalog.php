@@ -1,10 +1,5 @@
 <?php
-	$catalog = array(
-		'Beethoven',
-		'Spud',
-		'Something'
-		);
-
+	include('includes/data.php');
 	$pageTitle = 'Catalog';
 	if (isset($_GET['cat'])) {
 		if ($_GET['cat'] == 'books') {
@@ -22,12 +17,21 @@
 ?>
 
 	<div class="page-header">
-		<h1><?php echo $pageTitle; ?></h1>
-
-		<?php foreach ($catalog as $item) {
-			echo "<li>". $item ."</li>";
-		}
-		?>
+		<div class="section catalog page">
+			<div class="wrapper">
+				<h1><?php echo $pageTitle; ?></h1>
+				<ul class="items">
+					<?php foreach ($catalog as $item) {
+						echo "<li><a href='#'><img src='"
+						. $item['img'] . "' alt='"
+						. $item['title'] . "'/>"
+						. "<p>View Details</p>"
+						. "</a></li>";
+					}
+					?>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 <?php

@@ -1,14 +1,16 @@
 <?php
 	include('includes/data.php');
+	include('includes/functions.php');
 	$pageTitle = 'Catalog';
+	$section = null;
 	if (isset($_GET['cat'])) {
 		if ($_GET['cat'] == 'books') {
 			$pageTitle = 'Books';
 			$section = 'books';
-		} if ($_GET['cat'] == 'movies') {
+		} else if ($_GET['cat'] == 'movies') {
 			$pageTitle = 'Movies';
 			$section = 'movies';
-		} if ($_GET['cat'] == 'music') {
+		} else if ($_GET['cat'] == 'music') {
 			$pageTitle = 'Music';
 			$section = 'music';
 		}
@@ -19,15 +21,20 @@
 	<div class="page-header">
 		<div class="section catalog page">
 			<div class="wrapper">
-				<h1><?php echo $pageTitle; ?></h1>
-				<ul class="items">
-					<?php foreach ($catalog as $item) {
-						echo "<li><a href='#'><img src='"
-						. $item['img'] . "' alt='"
-						. $item['title'] . "'/>"
-						. "<p>View Details</p>"
-						. "</a></li>";
+				<h1>
+					<?php
+					if ($section != null) {
+						echo '<a href = "catalog.php">Full Catalog</a> &gt; ';
 					}
+					echo $pageTitle;
+					?>
+				</h1>
+				<ul class="items">
+					<?php
+						$categories = array_category($catalog,$section);
+						foreach ($categories as $id) {
+							echo get_item_html($id,$catalog[$id]);
+						}
 					?>
 				</ul>
 			</div>

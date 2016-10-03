@@ -2,7 +2,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">Place sticky footer content here.</p>
+			<p class="text-muted">These items are not a true representation of Shan's taste in entertainment. He is way cooler than that!</p>
 		</div>
 	</footer>
 
